@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tanzu-rabbitmq-crd-install-rolebinding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: tanzu-rabbitmq-crd-install-service-account # name of your service account
+  namespace: default
+roleRef: # referring to your ClusterRole
+  kind: ClusterRole
+  name: tanzu-rabbitmq-crd-install
+  apiGroup: rbac.authorization.k8s.io
